@@ -1,0 +1,22 @@
+PODS:
+  - ThreeRingControl (1.0.0)
+
+DEPENDENCIES:
+  - ThreeRingControl (from `https://github.com/hellowupeng/ThreeRingControl`, tag `1.0.0`)
+
+EXTERNAL SOURCES:
+  ThreeRingControl:
+    :git: https://github.com/hellowupeng/ThreeRingControl
+    :tag: 1.0.0
+
+CHECKOUT OPTIONS:
+  ThreeRingControl:
+    :git: https://github.com/hellowupeng/ThreeRingControl
+    :tag: 1.0.0
+
+SPEC CHECKSUMS:
+  ThreeRingControl: 5597a4b6fd48c2c8814f3cf649f484077b8e1090
+
+PODFILE CHECKSUM: c8f9cc4a34d82778bcba4c50283006c068207e05
+
+COCOAPODS: 1.2.1

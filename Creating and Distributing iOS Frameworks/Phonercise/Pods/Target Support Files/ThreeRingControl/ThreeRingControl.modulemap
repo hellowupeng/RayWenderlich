@@ -1,0 +1,6 @@
+framework module ThreeRingControl {
+  umbrella header "ThreeRingControl-umbrella.h"
+
+  export *
+  module * { export * }
+}
