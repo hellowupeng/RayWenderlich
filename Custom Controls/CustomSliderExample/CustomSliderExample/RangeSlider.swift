@@ -11,7 +11,7 @@ import QuartzCore
 
 class RangeSlider: UIControl {
 	
-	let trackLayer = CALayer()
+	let trackLayer = RangeSliderTrackLayer()
 	
 	let lowerThumbLayer = RangeSliderThumbLayer()
 	
@@ -22,17 +22,60 @@ class RangeSlider: UIControl {
 	}
 	
 	// 最小值
-	var minimumValue = 0.0
+	var minimumValue: Double = 0.0 {
+		didSet {
+			updateLayerFrames()
+		}
+	}
 	
 	// 最大值
-	var maximumValue = 1.0
+	var maximumValue = 1.0 {
+		didSet {
+			updateLayerFrames()
+		}
+	}
 
-	var lowerValue = 0.2
+	var lowerValue = 0.2 {
+		didSet {
+			updateLayerFrames()
+		}
+	}
 	
-	var upperValue = 0.8
+	var upperValue = 0.8 {
+		didSet {
+			updateLayerFrames()
+		}
+	}
 	
 	var previousLocation = CGPoint()
-
+	
+	var trackTintColor = UIColor(white: 0.9, alpha: 1.0) {
+		didSet {
+			trackLayer.setNeedsDisplay()
+		}
+	}
+	
+	var trackHighlightTintColor = UIColor(red: 0.0, green: 0.45, blue: 0.94, alpha: 1.0) {
+		didSet {
+			trackLayer.setNeedsDisplay()
+		}
+	}
+	
+	var thumbTintColor = UIColor.white {
+		didSet {
+			lowerThumbLayer.setNeedsDisplay()
+			upperThumbLayer.setNeedsDisplay()
+		}
+	}
+	
+	var curvaceousness: CGFloat = 1.0 {
+		didSet {
+			trackLayer.setNeedsDisplay()
+			lowerThumbLayer.setNeedsDisplay()
+			upperThumbLayer.setNeedsDisplay()
+		}
+	}
+	
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -50,15 +93,16 @@ class RangeSlider: UIControl {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		trackLayer.backgroundColor = UIColor.blue.cgColor
+		trackLayer.rangeSlider = self
+		trackLayer.contentsScale = UIScreen.main.scale
 		layer.addSublayer(trackLayer)
 		
-		lowerThumbLayer.backgroundColor = UIColor.green.cgColor
 		lowerThumbLayer.rangeSlider = self
+		lowerThumbLayer.contentsScale = UIScreen.main.scale
 		layer.addSublayer(lowerThumbLayer)
 		
-		upperThumbLayer.backgroundColor = UIColor.green.cgColor
 		upperThumbLayer.rangeSlider = self
+		upperThumbLayer.contentsScale = UIScreen.main.scale
 		layer.addSublayer(upperThumbLayer)
 		
 		updateLayerFrames()
@@ -105,14 +149,6 @@ class RangeSlider: UIControl {
 			upperValue = boundValue(value: upperValue, toLowerValue: lowerValue, upperValue: maximumValue)
 		}
 		
-		// 3. Update the UI
-		CATransaction.begin()
-		CATransaction.setDisableActions(true)
-		
-		updateLayerFrames()
-		
-		CATransaction.commit()
-		
 		sendActions(for: UIControlEvents.valueChanged)
 		return true
 	}
@@ -126,6 +162,9 @@ class RangeSlider: UIControl {
 	
 	/// 更新Layer Frames
 	func updateLayerFrames() {
+		CATransaction.begin()
+		CATransaction.setDisableActions(true)
+		
 		trackLayer.frame = bounds.insetBy(dx: 0.0, dy: bounds.height/3)
 		trackLayer.setNeedsDisplay()
 		
@@ -137,6 +176,8 @@ class RangeSlider: UIControl {
 		let upperThumbCenter = CGFloat(positionForValue(value: upperValue))
 		upperThumbLayer.frame = CGRect(x: upperThumbCenter-thumbWidth/2.0, y: 0.0, width: thumbWidth, height: thumbWidth)
 		upperThumbLayer.setNeedsDisplay()
+		
+		CATransaction.commit()
 	}
 	
 	/// 根据比例在最小、最大范围之间缩放position

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E811DEB31EDA36D9001FE333 /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811DEB21EDA36D9001FE333 /* RangeSliderTrackLayer.swift */; };
 		E86C94DA1ED8E86100E5311F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C94D91ED8E86100E5311F /* AppDelegate.swift */; };
 		E86C94DC1ED8E86100E5311F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C94DB1ED8E86100E5311F /* ViewController.swift */; };
 		E86C94DF1ED8E86100E5311F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E86C94DD1ED8E86100E5311F /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E811DEB21EDA36D9001FE333 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; tabWidth = 4; };
 		E86C94D61ED8E86100E5311F /* CustomSliderExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomSliderExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86C94D91ED8E86100E5311F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E86C94DB1ED8E86100E5311F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				E86C94E51ED8E86100E5311F /* Info.plist */,
 				E86C94F91ED8E98F00E5311F /* RangeSlider.swift */,
 				E86C94FB1ED8F53C00E5311F /* RangeSliderThumbLayer.swift */,
+				E811DEB21EDA36D9001FE333 /* RangeSliderTrackLayer.swift */,
 			);
 			path = CustomSliderExample;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E86C94DC1ED8E86100E5311F /* ViewController.swift in Sources */,
+				E811DEB31EDA36D9001FE333 /* RangeSliderTrackLayer.swift in Sources */,
 				E86C94FA1ED8E98F00E5311F /* RangeSlider.swift in Sources */,
 				E86C94DA1ED8E86100E5311F /* AppDelegate.swift in Sources */,
 				E86C94FC1ED8F53C00E5311F /* RangeSliderThumbLayer.swift in Sources */,
@@ -420,6 +424,7 @@
 				E86C94F51ED8E86100E5311F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E86C94F61ED8E86100E5311F /* Build configuration list for PBXNativeTarget "CustomSliderExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +433,7 @@
 				E86C94F81ED8E86100E5311F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
